@@ -642,10 +642,12 @@ oculis iussa est me ferro.</p>
 
 <script data-goatcounter="https://city-of-evereast.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <div>Number of visitors: <div id="stats"></div></div>
+<div>Test: <div id="test"></div></div>
 <script>
     var r = new XMLHttpRequest();
     r.addEventListener('load', function() {
         document.querySelector('#stats').innerText = JSON.parse(this.responseText).count_unique
+        document.querySelector('#test').innerText = encodeURIComponent(location.pathname)
     })
     r.open('GET', 'https://city-of-evereast.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
     r.send()
