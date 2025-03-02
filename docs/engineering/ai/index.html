@@ -640,30 +640,12 @@ oculis iussa est me ferro.</p>
 
 
 
-<script data-goatcounter="https://city-of-evereast.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<div>Number of visitors: <div id="stats"></div></div>
-<div>Test: <div id="test"></div></div>
 <script>
     
-    
-    
-
-    var r = new XMLHttpRequest();
-    
-    window.addEventListener('load', function() {
-        
-        
-        
-        document.querySelector('#test').innerText = location.pathname
-    })
-    
-    
-    
-    
-    /r.open('GET', 'https://city-of-evereast.goatcounter.com/counter' + location.pathname + '.json')
-    
-    r.send()
+    window.goatcounter.visit_count({append: 'body'})
 </script>
+<script data-goatcounter="https://city-of-evereast.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
 </div>
 
