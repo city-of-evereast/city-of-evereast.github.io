@@ -780,12 +780,16 @@ you are reading right now.</p>
 
 
 
+<div>Number of visitors: <div id="stats"></div></div>
+
 <script>
-    
-    window.goatcounter.visit_count({append: 'body'})
+    var r = new XMLHttpRequest();
+    r.addEventListener('load', function() {
+        document.querySelector('#stats').innerText = JSON.parse(this.responseText).count
+    })
+    r.open('GET', 'https://city-of-evereast.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+    r.send()
 </script>
-<script data-goatcounter="https://city-of-evereast.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
 
 </div>
 
