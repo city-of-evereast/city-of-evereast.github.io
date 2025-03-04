@@ -686,6 +686,13 @@ you are reading right now.</p>
 
 
 
+  <div>
+    <a class="flex align-center" target="_blank" rel="noopener">
+      <img src="/svg/view.svg" class="book-icon" alt="" />
+      <span id=stats></span>
+    </a>
+  </div>
+
 </div>
 
 
@@ -693,12 +700,25 @@ you are reading right now.</p>
   <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
-<script>
-    
-    window.goatcounter.visit_count({append: 'body'})
-</script>
 <script data-goatcounter="https://city-of-evereast.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+<script>
+  function removeTrailingSlash(str) {
+    if (str == '/')
+      return str;
+    else
+      return str.endsWith('/') ? str.slice(0, -1) : str;
+  }
+
+  var r = new XMLHttpRequest();
+  r.addEventListener('load', function() {
+      document.querySelector('#stats').innerText = JSON.parse(this.responseText).count
+  })
+  r.open('GET', 'https://city-of-evereast.goatcounter.com/counter/' + encodeURIComponent(removeTrailingSlash(location.pathname)) + '.json')
+  r.send()
+</script>
+
 
 
  
